@@ -22,7 +22,7 @@ if (empty($email) || empty($password)) {
             $sm->setAttribute("username", $user['username']);
             $sm->setAttribute("permission", $user['permission']);
 
-            header('location: ../index.php');
+            header('location: ../app.php');
             exit;
         } else {
             $sm->setAttribute("error", 'Invalid username or password!');
