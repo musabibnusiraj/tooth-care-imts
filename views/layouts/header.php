@@ -35,7 +35,9 @@ $currentFilename = basename($currentUrl);  // e.g., "dashboard.php"
     <meta name="description" content="" />
     <meta name="domain" content="<?= current_domain() ?>" />
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?= asset('assets/img/favicon/favicon.ico') ?>" />
+    <!-- Prefer SVG for modern browsers, keep ICO as a fallback -->
+    <link rel="icon" type="image/svg+xml" href="<?= asset('assets/img/favicon/favicon.svg') ?>" />
+    <link rel="alternate icon" type="image/x-icon" href="<?= asset('assets/img/favicon/favicon.ico') ?>" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
