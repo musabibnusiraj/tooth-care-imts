@@ -148,17 +148,17 @@
                         <div class="bg-gray-100 p-1 rounded-lg">
                             <img
                                 src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-                                alt="Dr. A.D. Ahmed"
+                                alt="Dr. M. Mishary"
                                 class="rounded-lg w-full h-auto object-cover" />
                         </div>
                     </div>
                     <div class="md:w-2/3">
                         <h3 class="text-2xl font-bold text-gray-800 mb-2">
-                            Dr. A.D. Ahmed
+                            Dr. M. Mishary
                         </h3>
                         <p class="text-blue-600 font-medium mb-4">Dental Surgeon</p>
                         <p class="text-gray-600 mb-6">
-                            Dr. A.D. Ahmed is a highly skilled dental surgeon with extensive
+                            Dr. M. Mishary is a highly skilled dental surgeon with extensive
                             experience in various dental procedures. He specializes in
                             providing comprehensive dental care with a gentle touch, ensuring
                             patients feel comfortable throughout their treatment. Dr. Ahmed is
@@ -202,7 +202,7 @@
                     </h2>
                     <div class="hr-blue mb-6"></div>
                     <p class="text-gray-600 max-w-3xl mx-auto">
-                        Dr. A.D. Ahmed is available for consultations on the following days.
+                        Dr. M. Mishary is available for consultations on the following days.
                         Contact us to book your appointment during these hours.
                     </p>
                 </div>
