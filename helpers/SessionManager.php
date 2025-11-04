@@ -12,7 +12,13 @@ class SessionManager
     {
         // Check if a session has already been started
         if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+            // Avoid attempting to start a session if headers were already sent.
+            if (!headers_sent()) {
+                session_start();
+            } else {
+                // Log an informational message so the developer can trace where output occurred.
+                error_log('SessionManager: headers already sent; session_start() skipped.');
+            }
         }
     }
 
