@@ -19,6 +19,30 @@ require_once('../layouts/login_header.php');
                     <h4 class="mb-2">Welcome to ImTS! 👋</h4>
                     <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
+                    <?php
+                    // Display error message if exists
+                    require_once(__DIR__ . '/../../helpers/AppManager.php');
+                    $sm = AppManager::getSM();
+                    $error = $sm->getAttribute('error');
+                    $success = $sm->getAttribute('success');
+
+                    if ($error) {
+                        echo '<div class="alert alert-danger alert-dismissible" role="alert">';
+                        echo htmlspecialchars($error);
+                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                        echo '</div>';
+                        $sm->removeAttribute('error');
+                    }
+
+                    if ($success) {
+                        echo '<div class="alert alert-success alert-dismissible" role="alert">';
+                        echo htmlspecialchars($success);
+                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                        echo '</div>';
+                        $sm->removeAttribute('success');
+                    }
+                    ?>
+
                     <form id="formAuthentication" class="mb-3" action="<?= url('services/auth.php') ?>" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email or Username</label>

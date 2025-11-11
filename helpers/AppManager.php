@@ -19,7 +19,13 @@ class AppManager
     public static function getPM()
     {
         if (self::$pm === null) {
-            self::$pm = new PersistanceManager();
+            try {
+                self::$pm = new PersistanceManager();
+            } catch (Exception $e) {
+                // Log and re-throw with more context
+                error_log('Failed to initialize PersistanceManager: ' . $e->getMessage());
+                throw new Exception('Database connection failed: ' . $e->getMessage());
+            }
         }
         return self::$pm;
     }
