@@ -1,0 +1,9 @@
+# Error logs
+error.log
+php_error_log
+
+# Debug files
+view_error_log.php
+
+# Database config (if you have sensitive credentials)
+# config.php

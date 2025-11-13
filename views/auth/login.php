@@ -52,15 +52,10 @@ require_once('../layouts/login_header.php');
                                 id="email"
                                 name="email"
                                 placeholder="Enter your email or username"
+                                value="<?= isset($_COOKIE['remember_email']) ? htmlspecialchars($_COOKIE['remember_email']) : '' ?>"
                                 autofocus />
                         </div>
                         <div class="mb-3 form-password-toggle">
-                            <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
-                                <a href="auth-forgot-password-basic.html">
-                                    <small>Forgot Password?</small>
-                                </a>
-                            </div>
                             <div class="input-group input-group-merge">
                                 <input
                                     type="password"
@@ -74,7 +69,8 @@ require_once('../layouts/login_header.php');
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="remember-me" />
+                                <input class="form-check-input" type="checkbox" id="remember-me" name="remember"
+                                    <?= isset($_COOKIE['remember_email']) ? 'checked' : '' ?> />
                                 <label class="form-check-label" for="remember-me"> Remember Me </label>
                             </div>
                         </div>
@@ -82,13 +78,6 @@ require_once('../layouts/login_header.php');
                             <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                         </div>
                     </form>
-
-                    <p class="text-center">
-                        <span>New on our platform?</span>
-                        <a href="auth-register-basic.html">
-                            <span>Create an account</span>
-                        </a>
-                    </p>
                 </div>
             </div>
             <!-- /Register -->

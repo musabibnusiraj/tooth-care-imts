@@ -165,6 +165,9 @@ class PersistanceManager
     private function executeQuery($query, $param = null, $fetchFirstRecOnly = false, $getLastInsertedId = false)
     {
         try {
+            if (!($this->pdo instanceof PDO)) {
+                throw new Exception('No database connection available.');
+            }
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($param);
 
@@ -181,8 +184,9 @@ class PersistanceManager
             $stmt->closeCursor();
             return $result;
         } catch (PDOException $e) {
-            echo $e->getMessage();
-            return -1;
+            // Log the error instead of echoing it
+            error_log('Database query error: ' . $e->getMessage() . ' | Query: ' . $query);
+            throw new Exception('Database query failed: ' . $e->getMessage());
         }
     }
 }

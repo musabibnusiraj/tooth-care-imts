@@ -14,6 +14,10 @@ define('SLOT_DURATION', 'PT60M');
 // Set the timezone to your desired timezone
 date_default_timezone_set('Asia/Colombo');
 
+// Error logging configuration
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/error.log');
+
 // Error reporting - set to 0 in production
 // For development/debugging on server, temporarily set to E_ALL
 // error_reporting(E_ALL);
