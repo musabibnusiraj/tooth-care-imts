@@ -67,14 +67,21 @@ try {
             // Handle Remember Me functionality
             if ($remember) {
                 // Set cookie for 30 days
+                /**
+                 * Expiration timestamp for a long-lived cookie (30 days from now).
+                 *
+                 * Computation details:
+                 * - Adds a 30-day duration, expressed in seconds, to the current UNIX timestamp (time()).
+                 * - Breakdown: 30 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute
+                 *   = 30 * 24 * 60 * 60 = 2,592,000 seconds.
+                 * - Result is an integer UNIX timestamp representing "now + 30 days".
+                 */
                 $cookie_time = time() + (30 * 24 * 60 * 60); // 30 days
                 setcookie('remember_email', $email, $cookie_time, '/', '', false, true);
-                setcookie('remember_token', bin2hex(random_bytes(32)), $cookie_time, '/', '', false, true);
             } else {
                 // Clear remember me cookies if unchecked
                 if (isset($_COOKIE['remember_email'])) {
                     setcookie('remember_email', '', time() - 3600, '/', '', false, true);
-                    setcookie('remember_token', '', time() - 3600, '/', '', false, true);
                 }
             }
 
